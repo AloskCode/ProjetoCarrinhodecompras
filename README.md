@@ -8,7 +8,7 @@ Guilherme Dorce De Britto RA:1991866<br>
 2. Copie a pasta do projeto para dentro do diretório `htdocs` do XAMPP.
    - Exemplo: `C:\xampp\htdocs\carrinho`
 3. Certifique-se de que o **Apache** está rodando no painel do XAMPP.
-4. Acesse o projeto no navegador pelo endereço:
+4. Acesse o projeto no navegador pelo endereço:http://localhost/carrinho
 
 
 
