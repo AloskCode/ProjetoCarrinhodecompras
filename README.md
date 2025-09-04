@@ -1,4 +1,7 @@
-# ProjetoCarrinhodecompras
+# Simulador de Carrinho de Compras
+
+Projeto acadêmico em PHP puro seguindo PSR-12, DRY e KISS.
+
 Thiago tsuyoshi Okada Aoki RA 2002282<br>
 Guilherme Dorce De Britto RA:1991866<br>
 
@@ -10,5 +13,10 @@ Guilherme Dorce De Britto RA:1991866<br>
 3. Certifique-se de que o **Apache** está rodando no painel do XAMPP.
 4. Acesse o projeto no navegador pelo endereço:http://localhost/carrinho
 
-
+## Funcionalidades
+- Adicionar item
+- Remover item
+- Listar itens
+- Calcular total
+- Aplicar cupom DESCONTO10
 
