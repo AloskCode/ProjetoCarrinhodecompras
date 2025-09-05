@@ -53,10 +53,6 @@ Resultado: Cada subtotal calculado corretamente e total final como soma dos subt
 
 ## Limitações
 
-Não há persistência de dados (apenas arrays em memória).
-
-Não possui login/usuário.
-
 Não há input via formulário (valores podem ser fixos em variáveis).
 
 Não utiliza frameworks externos (somente PHP puro).
