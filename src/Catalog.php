@@ -14,13 +14,19 @@ final class Catalog
         ];
 
         foreach ($this->products as &$product) {
-            if ($product['preço'] < 0) {
-                $product['preço'] = 0.0;
-            }
-            if ($product['estoque'] < 0) {
-                $product['estoque'] = 0;
-            }
+            $product = $this->sanitizeProduct($product);
         }
+    }
+
+    private function sanitizeProduct(array $product): array
+    {
+        if ($product['preço'] < 0) {
+            $product['preço'] = 0.0;
+        }
+        if ($product['estoque'] < 0) {
+            $product['estoque'] = 0;
+        }
+        return $product;
     }
 
     public function all(): array
@@ -32,13 +38,7 @@ final class Catalog
     {
         foreach ($this->products as $product) {
             if ($product['id'] === $id) {
-                if ($product['preço'] < 0) {
-                    $product['preço'] = 0.0;
-                }
-                if ($product['estoque'] < 0) {
-                    $product['estoque'] = 0;
-                }
-                return $product;
+                return $this->sanitizeProduct($product);
             }
         }
         return null;
@@ -59,9 +59,7 @@ final class Catalog
                 }
                 $product['estoque'] -= $quantity;
 
-                if ($product['estoque'] < 0) {
-                    $product['estoque'] = 0;
-                }
+                $product = $this->sanitizeProduct($product);
                 return;
             }
         }
@@ -74,9 +72,7 @@ final class Catalog
             if ($product['id'] === $productId) {
                 $product['estoque'] += $quantity;
 
-                if ($product['estoque'] < 0) {
-                    $product['estoque'] = 0;
-                }
+                $product = $this->sanitizeProduct($product);
                 return;
             }
         }
