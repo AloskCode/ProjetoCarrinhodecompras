@@ -61,9 +61,14 @@ Não há input via formulário (valores podem ser fixos em variáveis).
 
 Não utiliza frameworks externos (somente PHP puro).
 
-## Regras de negocio 
+## Regras de negócio 
 
+Não da pra adicionar um produto que não tem no catalogo
 
+Não aceita nenhuma forma de numero negativo
 
+Não é permitido adicionar no carrinho mais do que tem no estoque 
 
+O desconto só pode ser aplicado com cupom válido (DESCONTO10)
 
+Estoque atualiza intantaneamente, removendo ou colocando items no carrinho
