@@ -14,10 +14,18 @@ final class CartItem
         float $price,
         int $quantity
     ) {
+        if ($price < 0) {
+            throw new InvalidArgumentException('Preço não pode ser negativo.');
+        }
+
+        if ($quantity < 1) {
+            throw new InvalidArgumentException('Quantidade deve ser pelo menos 1.');
+        }
+
         $this->productId  = $productId;
         $this->name       = $name;
-        $this->price      = $price < 0 ? 0.0 : $price;
-        $this->quantity   = $quantity < 1 ? 1 : $quantity;
+        $this->price      = $price;
+        $this->quantity   = $quantity;
     }
 
     public function getSubtotal(): float
