@@ -22,6 +22,18 @@ Guilherme Dorce De Britto RA:1991866<br>
 
 ## Casos de Teste
 
-      ['id' => 1, 'nome' => 'Camiseta',    'preco' => 59.90,  'estoque' => 10],
-      ['id' => 2, 'nome' => 'Calça Jeans', 'preco' => 129.90, 'estoque' => 5],
-      ['id' => 3, 'nome' => 'Tênis',       'preco' => 199.90, 'estoque' => 3],
+Caso 1: Adicionar Produto Válido
+Entrada: produto id=1, quantidade 2.
+Resultado: Produto adicionado e estoque atualizado.
+Caso 2: Adicionar Além do Estoque
+Entrada: produto id=3, quantidade 10.
+Resultado: Exibe erro "Estoque insuficiente."
+Caso 3: Remover Produto
+Entrada: produto id=2.
+Resultado: Produto removido e estoque restaurado.
+Caso 4: Aplicação de Desconto
+Entrada: cupom DESCONTO10.
+Resultado: Total do carrinho reduzido em 10%.
+Caso 5: Subtotal por Produto
+Entrada: 3 produtos com diferentes quantidades.
+Resultado: Cada subtotal calculado corretamente e total final como soma dos subtotais.
