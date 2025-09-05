@@ -21,9 +21,8 @@ final class Cart
             throw new RuntimeException('Produto não encontrado');
         }
 
-        // Protege contra preços negativos
-        if ($product['price'] < 0) {
-            $product['price'] = 0.0;
+        if ($product['preço'] < 0) {
+            $product['preço'] = 0.0;
         }
 
         $this->catalog->debitStock($productId, $quantity);
@@ -31,7 +30,6 @@ final class Cart
         if (isset($this->items[$productId])) {
             $this->items[$productId]->quantity += $quantity;
 
-            // Protege contra quantidades inválidas
             if ($this->items[$productId]->quantity < 1) {
                 $this->items[$productId]->quantity = 1;
             }
@@ -40,8 +38,8 @@ final class Cart
 
         $this->items[$productId] = new CartItem(
             productId:  $product['id'],
-            name:       $product['name'],
-            price:      $product['price'],
+            name:       $product['nome'],
+            price:      $product['preço'],
             quantity:   $quantity < 1 ? 1 : $quantity
         );
     }

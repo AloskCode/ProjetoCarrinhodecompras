@@ -8,17 +8,17 @@ final class Catalog
     public function __construct()
     {
         $this->products = [
-            ['id' => 1, 'name' => 'T-shirt',  'price' => 59.90,  'stock' => 10],
-            ['id' => 2, 'name' => 'Jeans',    'price' => 129.90, 'stock' => 5],
-            ['id' => 3, 'name' => 'Sneakers', 'price' => 199.90, 'stock' => 3],
+            ['id' => 1, 'nome' => 'Camiseta',  'preço' => 59.90,  'estoque' => 10],
+            ['id' => 2, 'nome' => 'Jeans',    'preço' => 129.90, 'estoque' => 5],
+            ['id' => 3, 'nome' => 'Tenis', 'preço' => 199.90, 'estoque' => 3],
         ];
 
         foreach ($this->products as &$product) {
-            if ($product['price'] < 0) {
-                $product['price'] = 0.0;
+            if ($product['preço'] < 0) {
+                $product['preço'] = 0.0;
             }
-            if ($product['stock'] < 0) {
-                $product['stock'] = 0;
+            if ($product['estoque'] < 0) {
+                $product['estoque'] = 0;
             }
         }
     }
@@ -32,11 +32,11 @@ final class Catalog
     {
         foreach ($this->products as $product) {
             if ($product['id'] === $id) {
-                if ($product['price'] < 0) {
-                    $product['price'] = 0.0;
+                if ($product['preço'] < 0) {
+                    $product['preço'] = 0.0;
                 }
-                if ($product['stock'] < 0) {
-                    $product['stock'] = 0;
+                if ($product['estoque'] < 0) {
+                    $product['estoque'] = 0;
                 }
                 return $product;
             }
@@ -47,20 +47,20 @@ final class Catalog
     public function hasStock(int $productId, int $quantity): bool
     {
         $product = $this->find($productId);
-        return $product !== null && $product['stock'] >= $quantity;
+        return $product !== null && $product['estoque'] >= $quantity;
     }
 
     public function debitStock(int $productId, int $quantity): void
     {
         foreach ($this->products as &$product) {
             if ($product['id'] === $productId) {
-                if ($product['stock'] < $quantity) {
+                if ($product['estoque'] < $quantity) {
                     throw new RuntimeException('Estoque Insuficiente');
                 }
-                $product['stock'] -= $quantity;
+                $product['estoque'] -= $quantity;
 
-                if ($product['stock'] < 0) {
-                    $product['stock'] = 0;
+                if ($product['estoque'] < 0) {
+                    $product['estoque'] = 0;
                 }
                 return;
             }
@@ -72,10 +72,10 @@ final class Catalog
     {
         foreach ($this->products as &$product) {
             if ($product['id'] === $productId) {
-                $product['stock'] += $quantity;
+                $product['estoque'] += $quantity;
 
-                if ($product['stock'] < 0) {
-                    $product['stock'] = 0;
+                if ($product['estoque'] < 0) {
+                    $product['estoque'] = 0;
                 }
                 return;
             }
